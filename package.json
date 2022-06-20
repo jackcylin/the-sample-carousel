@@ -7,6 +7,7 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
+    "bundle": "./node_modules/.bin/rollup -c",
     "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rimraf my-element.{d.ts,d.ts.map,js,js.map} test/my-element.{d.ts,d.ts.map,js,js.map} test/my-element_test.{d.ts,d.ts.map,js,js.map}",

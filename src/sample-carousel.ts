@@ -43,6 +43,7 @@ export class SampleCarousel extends LitElement {
     override render() {
         const containerStyles = {
             height: `${this.containerHeight}px`
+            // height: '300px'
         };
 
         return html`

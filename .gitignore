@@ -1,9 +1,13 @@
 /node_modules/
 /lib/
 /test/
+/.DS_Store
 custom-elements.json
 # tsc output
 /dist
 
 package-lock.json
 yarn.lock
+
+# lab react 
+/carousel-in-react

@@ -10,10 +10,12 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 
 export default {
-  input: 'my-element.js',
+  input: 'dist/sample-carousel.js',
   output: {
-    file: 'my-element.bundled.js',
-    format: 'esm',
+    file: 'dist/bundle.js',
+    // format: 'esm',
+    format: "iife",
+    // format: 'cjs'
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
