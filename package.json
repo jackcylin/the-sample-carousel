@@ -40,6 +40,9 @@
   ],
   "author": "Google LLC",
   "license": "BSD-3-Clause",
+  "files": [
+    "*.js"
+  ],
   "dependencies": {
     "lit": "^2.2.4"
   },

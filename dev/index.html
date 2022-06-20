@@ -6,17 +6,40 @@
     <title>&lt;my-element> Demo</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../node_modules/lit/polyfill-support.js"></script>
-    <script type="module" src="../my-element.js"></script>
+    <script type="module" src="../dist/sample-carousel.js"></script>
+
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+
     <style>
+      body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+      }
       p {
-        border: solid 1px blue;
-        padding: 8px;
+        border: solid 1px rgb(255, 0, 0);
+        padding: 18px;
+      }
+      sample-carousel {
+        width: 50vw;
+        max-width: 600px;
+
+        --shadow: red;
+        --highlight: green;
       }
     </style>
   </head>
   <body>
-    <my-element>
+
+    <sample-carousel slideIndex="0">
       <p>This is child content</p>
-    </my-element>
+      <h1>web component one</h1>
+      <h1>web component two</h1>
+      <h1>web component three</h1>
+      <h1>web component four</h1>
+    </sample-carousel>
   </body>
 </html>
