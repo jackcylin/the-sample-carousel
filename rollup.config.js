@@ -8,14 +8,14 @@ import summary from 'rollup-plugin-summary';
 import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
+import minifyHTML from 'rollup-plugin-minify-html-literals';
 
 export default {
   input: 'dist/sample-carousel.js',
   output: {
+    name: "bundle",
     file: 'dist/bundle.js',
-    // format: 'esm',
     format: "iife",
-    // format: 'cjs'
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -23,7 +23,8 @@ export default {
     }
   },
   plugins: [
-    replace({'Reflect.decorate': 'undefined'}),
+    minifyHTML(),
+    replace({'Reflect.decorate': 'undefined', preventAssignment: true}),
     resolve(),
     terser({
       ecma: 2017,

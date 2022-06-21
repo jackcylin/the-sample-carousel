@@ -86,7 +86,8 @@ export class SampleCarousel extends LitElement {
     }
 
     private getMaxElHeight(els: HTMLElement[]): number {
-        return Math.max(0, ...els.map(el => el.getBoundingClientRect().height))
+        const max = Math.max(0, ...els.map(el => el.getBoundingClientRect().height));
+        return max > 40 ? max : 40;
     }
 }
 
