@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import babel from '@rollup/plugin-babel';
 import summary from 'rollup-plugin-summary';
 import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
@@ -13,9 +14,9 @@ import minifyHTML from 'rollup-plugin-minify-html-literals';
 export default {
   input: 'dist/sample-carousel.js',
   output: {
-    name: "bundle",
+    name: 'bundle',
     file: 'dist/bundle.js',
-    format: "iife",
+    format: 'iife',
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -35,6 +36,10 @@ export default {
           regex: /^__/,
         },
       },
+    }),
+    babel({
+      presets: ['@babel/preset-env'],
+      babelHelpers: 'bundled',
     }),
     summary(),
   ],
