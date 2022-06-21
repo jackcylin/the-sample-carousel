@@ -3,8 +3,9 @@
 /test/
 /.DS_Store
 custom-elements.json
-# tsc output
-/dist
+
+# tsc and rollup output
+/build
 
 package-lock.json
 yarn.lock

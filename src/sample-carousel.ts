@@ -3,7 +3,7 @@ import { customElement, property, queryAssignedElements, state } from "lit/decor
 import { styleMap } from "lit/directives/style-map.js"
 import "./slide-button";
 import { PREVIOUS, NEXT } from "./consts"
-
+ 
 @customElement("sample-carousel")
 export class SampleCarousel extends LitElement {
     @property({ type: Number }) slideIndex = 0;
@@ -64,6 +64,7 @@ export class SampleCarousel extends LitElement {
     }
 
     private changeSlide(offset: number) {
+        console.log(`change to ${offset}`)
         const slideCount = this.slideElements.length;
         this.slideIndex = (slideCount + (this.slideIndex + offset) % slideCount) % slideCount;
     }

@@ -8,15 +8,19 @@ import babel from '@rollup/plugin-babel';
 import summary from 'rollup-plugin-summary';
 import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
+import eslint from "@rollup/plugin-eslint";
 import replace from '@rollup/plugin-replace';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
+import typescript from '@rollup/plugin-typescript';
 
 export default {
-  input: 'dist/sample-carousel.js',
+  input: 'src/sample-carousel.ts',
   output: {
     name: 'bundle',
-    file: 'dist/bundle.js',
+    file: 'build/bundle.js',
     format: 'iife',
+    // format: 'cjs'
+    sourcemap: true,
   },
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {
@@ -26,7 +30,9 @@ export default {
   plugins: [
     minifyHTML(),
     replace({'Reflect.decorate': 'undefined', preventAssignment: true}),
+    typescript(),
     resolve(),
+    eslint(),
     terser({
       ecma: 2017,
       module: true,
